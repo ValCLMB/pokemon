@@ -1,5 +1,6 @@
+import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import { getPokemons, pool } from "./lib/data";
+import { getPokemons } from "./lib/data";
 
 export type Pokemon = {
   id: number;
@@ -19,25 +20,22 @@ export const ICONTYPE: IconType = {
   Eau: "💦",
   Insecte: "🪲",
   psy: "🔮",
+  Electrique: "⚡️⚡️",
 };
-
-async function getData() {
-  const res = await fetch(`${process.env.URL}/api/pokemon`);
-  return res.json();
-}
 
 export default async function Home() {
   const pokemons = await getPokemons();
 
   return (
-    <main className="flex flex-col items-center gap-10 min-h-screen p-12">
+    <>
       <h1 className="font-bold text-3xl">Pokémon</h1>
+
       <section className="w-4/6 text-center  flex flex-wrap justify-center gap-2">
         {pokemons?.map((pokemon) => (
           <Link
+            key={pokemon.id}
             href={`${pokemon.id}`}
             className="flex flex-col  items-center cursor-pointer w-[30%] border px-5 pt-8 rounded-md bg-white/60 backdrop-blur-md  transition-all duration-300 hover:bg-white/90"
-            key={pokemon.id}
           >
             <img
               src={pokemon.image}
@@ -51,6 +49,9 @@ export default async function Home() {
           </Link>
         ))}
       </section>
-    </main>
+      <Link href="/add" className={buttonVariants()}>
+        Ajouter
+      </Link>
+    </>
   );
 }
