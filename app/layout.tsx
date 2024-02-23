@@ -22,6 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/pokemon.png" sizes="any" />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
