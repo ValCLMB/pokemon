@@ -2,11 +2,7 @@ import { Pool } from "pg";
 import { Pokemon } from "../page";
 
 export const pool = new Pool({
-  user: process.env.POSTGRES_USER,
-  host: process.env.POSTGRES_HOST,
-  password: process.env.POSTGRES_PASSWORD,
-  database: process.env.POSTGRES_DATABASE,
-  port: 5432,
+  connectionString: process.env.POSTGRES_URL,
 });
 
 export const getPokemons = async () => {
