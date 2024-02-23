@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import PokemonCard from "@/components/PokemonCard";
-import { getPokemons } from "./lib/data";
 
 export type Pokemon = {
   id: number;
@@ -8,9 +7,14 @@ export type Pokemon = {
   type: string;
   image: string;
 };
+const fetchPokemons = () => {
+  return fetch(`${process.env.HOSTNAME}/api/pokemon`, {
+    next: { revalidate: false },
+  }).then((res) => res.json());
+};
 
 export default async function Home() {
-  const pokemons = await getPokemons();
+  const pokemons: Pokemon[] = await fetchPokemons();
 
   if (!pokemons) throw new Error("No pokemons found");
 

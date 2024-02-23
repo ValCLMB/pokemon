@@ -9,7 +9,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
-import { getPokemon } from "../lib/data";
 
 type Props = {
   params: {
@@ -17,8 +16,14 @@ type Props = {
   };
 };
 
+const fetchPokemon = (id: number) => {
+  return fetch(`${process.env.HOSTNAME}/api/pokemon/${id}`, {
+    next: { revalidate: false },
+  }).then((res) => res.json());
+};
+
 export default async function Pokemon({ params }: Props) {
-  const pokemon = await getPokemon(params.id);
+  const pokemon = await fetchPokemon(params.id);
 
   if (!pokemon) throw new Error("Pokemon not found");
 
