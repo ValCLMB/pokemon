@@ -1,7 +1,9 @@
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
 export const fontSans = FontSans({
@@ -26,10 +28,14 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <main className="flex flex-col items-center gap-5 min-h-screen p-2 md:p-8">
+        <main className="flex flex-col items-center gap-5  p-2 md:p-8">
           {children}
         </main>
         <Toaster />
+        <footer className="flex justify-center items-center gap-1 pb-5 text-black/50 hover:text-black transition-all">
+          <GitHubLogoIcon />
+          <Link href="https://github.com/valclmb">valclmb</Link>
+        </footer>
       </body>
     </html>
   );
