@@ -24,7 +24,7 @@ export default async function Pokemon({ params }: Props) {
 
   return (
     <Card className="min-w-96">
-      <CardHeader className="flex flex-col items-center">
+      <CardHeader className="flex flex-col items-center pb-0">
         <img
           src={pokemon.image}
           alt={pokemon.name}
@@ -32,8 +32,8 @@ export default async function Pokemon({ params }: Props) {
         />
         <CardTitle className="text-4xl">{pokemon?.name}</CardTitle>
       </CardHeader>
-      <CardContent className="flex justify-center items-center gap-2 text-xl ">
-        <p className="text-3xl">{ICONTYPE[pokemon.type as string]}</p>
+      <CardContent className="flex justify-center items-center gap-2">
+        <p className="text-2xl">{ICONTYPE[pokemon.type as string]}</p>
         <p>{pokemon.type}</p>
       </CardContent>
       <CardFooter className="flex justify-center gap-2">
