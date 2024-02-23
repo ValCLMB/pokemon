@@ -1,4 +1,5 @@
 import { Pokemon } from "@/app/page";
+import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
@@ -30,10 +31,12 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
     >
       <Card className="flex flex-col items-center text-center py-2 w-full">
         <CardHeader className="pb-0">
-          <img
+          <Image
             src={pokemon.image}
             alt={pokemon.name}
-            className="w-[100px] h-[100px] text-center object-contain"
+            width={100}
+            height={100}
+            className="size-[100px]"
           />
           <CardTitle>{pokemon.name}</CardTitle>
         </CardHeader>

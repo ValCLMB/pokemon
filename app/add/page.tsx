@@ -19,7 +19,7 @@ import { z } from "zod";
 
 const pokemonSchema = z.object({
   name: z.string(),
-  image: z.string(),
+  image: z.string().url(),
   type: z.string(),
 });
 

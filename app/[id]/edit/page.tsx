@@ -28,7 +28,7 @@ type EditPokemonProps = {
 
 const pokemonSchema = z.object({
   name: z.string().optional(),
-  image: z.string().optional(),
+  image: z.string().url().optional(),
   type: z.string().optional(),
 });
 

@@ -1,6 +1,5 @@
 import { pool } from "@/app/lib/data";
 import { Pokemon } from "@/app/page";
-import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 type Params = {
@@ -34,7 +33,6 @@ export const PUT = async (req: NextRequest, { params }: Params) => {
       `UPDATE pokemons SET name='${res.name}', image='${res.image}', type='${res.type}' WHERE id=${params.id}`
     );
 
-    revalidatePath(`/`);
     return NextResponse.json({ status: 200 });
   } catch (err) {
     return NextResponse.json(err);
@@ -47,7 +45,7 @@ export const DELETE = async (req: NextRequest, { params }: Params) => {
   const client = await pool.connect();
   try {
     client.query(`DELETE FROM pokemons WHERE id=${params.id}`);
-    revalidatePath("/");
+
     return NextResponse.json({ status: 200 });
   } catch (err) {
     return NextResponse.json(err);

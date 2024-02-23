@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Image from "next/image";
 import Link from "next/link";
 import { getPokemon } from "../lib/data";
 
@@ -27,11 +28,13 @@ export default async function Pokemon({ params }: Props) {
   return (
     <Card className="min-w-96">
       <CardHeader className="flex flex-col items-center pb-0">
-        <img
+        <Image
           src={pokemon.image}
           alt={pokemon.name}
-          className="w-[120px] h-[120px] text-center object-contain"
+          width={120}
+          height={120}
         />
+
         <CardTitle className="text-4xl">{pokemon?.name}</CardTitle>
       </CardHeader>
       <CardContent className="flex justify-center items-center gap-2">
