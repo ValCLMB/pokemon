@@ -1,6 +1,9 @@
 import { Pool } from "pg";
 import { Pokemon } from "../page";
 
+const http = process.env.VERCEL_ENV === "development" ? "http://" : "https://";
+export const baseUrl = `${http}${process.env.VERCEL_URL}/api/pokemon`;
+
 export const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
 });

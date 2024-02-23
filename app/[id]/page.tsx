@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
-import { baseUrl } from "../page";
+import { baseUrl } from "../lib/data";
 
 type Props = {
   params: {

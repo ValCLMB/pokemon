@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import PokemonCard from "@/components/PokemonCard";
+import { baseUrl } from "./lib/data";
 
 export type Pokemon = {
   id: number;
@@ -7,8 +8,6 @@ export type Pokemon = {
   type: string;
   image: string;
 };
-const http = process.env.VERCEL_ENV === "development" ? "http://" : "https://";
-export const baseUrl = `${http}${process.env.VERCEL_URL}/api/pokemon`;
 
 const fetchPokemons = () => {
   return fetch(baseUrl, {
