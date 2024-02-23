@@ -1,8 +1,8 @@
 import { DeleteButton } from "@/components/DeleteButton";
+import { ICONTYPE } from "@/components/PokemonCard";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { getPokemon } from "../lib/data";
-import { ICONTYPE } from "../page";
 
 type Props = {
   params: {

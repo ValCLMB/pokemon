@@ -26,7 +26,7 @@ export default function Error({
       <CardHeader>
         <CardTitle>Oups ! Une erreur est survenue.</CardTitle>
         <CardDescription className="text-white">
-          Ce pokémon n'a pas été trouvé
+          Aucun pokémon n'a été trouvé
         </CardDescription>
       </CardHeader>
       <CardContent>

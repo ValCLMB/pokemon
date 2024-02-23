@@ -42,7 +42,7 @@ export const PUT = async (req: NextRequest, { params }: Params) => {
 export const DELETE = async (req: NextRequest, { params }: Params) => {
   const client = await pool.connect();
   try {
-    // client.query(`DELETE FROM pokemons WHERE id=${params.id}`);
+    client.query(`DELETE FROM pokemons WHERE id=${params.id}`);
     return NextResponse.json({ status: 200 });
   } catch (err) {
     return NextResponse.json(err);
