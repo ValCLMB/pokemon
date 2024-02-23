@@ -40,6 +40,7 @@ export default function EditPokemon() {
             title: "Pokémon ajouté avec succès !",
           });
           router.push("/");
+          router.refresh();
         }
       });
   };

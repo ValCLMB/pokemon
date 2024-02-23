@@ -27,10 +27,11 @@ export const DeleteButton = ({ id }: DeleteButtonProps) => {
       .then((res) => res.json())
       .then((res) => {
         if (res.status === 200) {
-          router.push("/");
           toast({
             title: "Pokémon supprimé avec succès !",
           });
+          router.push("/");
+          router.refresh();
         }
       });
   };

@@ -66,6 +66,7 @@ export default function EditPokemon({ params }: EditPokemonProps) {
             title: "Pokémon modifié avec succès !",
           });
           router.push(`/${params.id}`);
+          router.refresh();
         }
       });
   };
