@@ -7,8 +7,11 @@ export type Pokemon = {
   type: string;
   image: string;
 };
+const http = process.env.VERCEL_ENV === "development" ? "http://" : "https://";
+export const baseUrl = `${http}${process.env.VERCEL_URL}/api/pokemon`;
+
 const fetchPokemons = () => {
-  return fetch(`${process.env.HOSTNAME}/api/pokemon`, {
+  return fetch(baseUrl, {
     next: { revalidate: false },
   }).then((res) => res.json());
 };

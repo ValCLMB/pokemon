@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { baseUrl } from "../page";
 
 type Props = {
   params: {
@@ -17,7 +18,7 @@ type Props = {
 };
 
 const fetchPokemon = (id: number) => {
-  return fetch(`${process.env.HOSTNAME}/api/pokemon/${id}`, {
+  return fetch(`${baseUrl}/${id}`, {
     next: { revalidate: false },
   }).then((res) => res.json());
 };
