@@ -1,6 +1,13 @@
 import { DeleteButton } from "@/components/DeleteButton";
 import { ICONTYPE } from "@/components/PokemonCard";
 import { buttonVariants } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import Link from "next/link";
 import { getPokemon } from "../lib/data";
 
@@ -16,23 +23,25 @@ export default async function Pokemon({ params }: Props) {
   if (!pokemon) throw new Error("Pokemon not found");
 
   return (
-    <>
-      <img
-        src={pokemon.image}
-        alt={pokemon.name}
-        className="w-[200px] h-[200px] text-center object-contain"
-      />
-      <h1 className="text-7xl">{pokemon?.name}</h1>
-      <div className="text-xl text-center">
+    <Card className="min-w-96">
+      <CardHeader className="flex flex-col items-center">
+        <img
+          src={pokemon.image}
+          alt={pokemon.name}
+          className="w-[120px] h-[120px] text-center object-contain"
+        />
+        <CardTitle className="text-4xl">{pokemon?.name}</CardTitle>
+      </CardHeader>
+      <CardContent className="flex justify-center items-center gap-2 text-xl ">
+        <p className="text-3xl">{ICONTYPE[pokemon.type as string]}</p>
         <p>{pokemon.type}</p>
-        <p className="text-3xl mt-2">{ICONTYPE[pokemon.type as string]}</p>
-      </div>
-      <div className="flex gap-2">
+      </CardContent>
+      <CardFooter className="flex justify-center gap-2">
         <Link href={`${pokemon.id}/edit`} className={buttonVariants()}>
           Modifier
         </Link>
         <DeleteButton id={pokemon.id} />
-      </div>
-    </>
+      </CardFooter>
+    </Card>
   );
 }
