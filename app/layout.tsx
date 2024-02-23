@@ -26,7 +26,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <main className="flex flex-col items-center gap-10 min-h-screen p-8">
+        <main className="flex flex-col items-center gap-10 min-h-screen p-2 md:p-8">
           {children}
         </main>
         <Toaster />

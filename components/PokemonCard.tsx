@@ -12,6 +12,7 @@ export const ICONTYPE: IconType = {
   "Feu/Vol": "🔥🪽",
   Eau: "💦",
   Insecte: "🪲",
+  "Insecte/Vol": "🪲🪽",
   psy: "🔮",
   Electrique: "⚡️⚡️",
 };
@@ -24,7 +25,7 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
   return (
     <Link
       href={pokemon.id.toString()}
-      className="flex flex-col p-2 items-center cursor-pointer  w-[30%]"
+      className="flex flex-col p-2 items-center cursor-pointer w-full lg:w-[30%] md:w-[45%]"
     >
       <Card className="flex flex-col items-center py-2 w-full">
         <CardHeader className="pb-0">
