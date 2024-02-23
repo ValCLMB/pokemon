@@ -22,6 +22,8 @@ export default async function Pokemon({ params }: Props) {
 
   if (!pokemon) throw new Error("Pokemon not found");
 
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
   return (
     <Card className="min-w-96">
       <CardHeader className="flex flex-col items-center pb-0">
