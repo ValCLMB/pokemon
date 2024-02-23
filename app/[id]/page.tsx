@@ -35,10 +35,10 @@ export default async function Pokemon({ params }: Props) {
         <CardTitle className="text-4xl">{pokemon?.name}</CardTitle>
       </CardHeader>
       <CardContent className="flex justify-center items-center gap-2">
-        <p className="text-2xl">{ICONTYPE[pokemon.type as string]}</p>
+        <p className="text-xl">{ICONTYPE[pokemon.type as string]}</p>
         <p>{pokemon.type}</p>
       </CardContent>
-      <CardFooter className="flex justify-center gap-2">
+      <CardFooter className="flex justify-center gap-1">
         <Link href={`${pokemon.id}/edit`} className={buttonVariants()}>
           Modifier
         </Link>
